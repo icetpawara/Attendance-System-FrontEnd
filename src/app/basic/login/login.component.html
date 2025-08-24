@@ -1,0 +1,34 @@
+<div class="center-form">
+    <div class="login-header">
+        <i nz-icon nzType="user" nzTheme="outline" class="login-icon"></i>
+        <h1>Welcome Back</h1>
+        <p class="subtitle">Please enter your credentials to continue</p>
+    </div>
+    <form nz-form class="custom-form" [formGroup]="loginForm">
+
+        <nz-form-item>
+            <nz-form-control nzErrorTip="Please input your email">
+                <nz-input-group nzPrefixIcon="mail">
+                <input type="text" nz-input formControlName="email" placeholder="Enter email"/>
+                </nz-input-group>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-control nzErrorTip="Please input your Password">
+                <nz-input-group nzPrefixIcon="lock">
+                    <input type="password" nz-input formControlName="password" placeholder="Enter Password"/>
+                </nz-input-group>
+            </nz-form-control>
+        </nz-form-item>
+
+        <button nz-button nzType="primary" nzBlock class="login-button" [disabled]="loginForm.invalid">
+            <i nz-icon nzType="login" nzTheme="outline"></i>
+            Sign In
+        </button>
+
+        <div class="form-footer">
+            <a nz-button nzType="link">Forgot password?</a>
+        </div>
+    </form>
+</div>
