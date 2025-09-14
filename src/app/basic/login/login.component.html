@@ -4,7 +4,7 @@
         <h1>Welcome Back</h1>
         <p class="subtitle">Please enter your credentials to continue</p>
     </div>
-    <form nz-form class="custom-form" [formGroup]="loginForm">
+    <form nz-form class="custom-form" [formGroup]="loginForm" (ngSubmit)="submitForm()">
 
         <nz-form-item>
             <nz-form-control nzErrorTip="Please input your email">
