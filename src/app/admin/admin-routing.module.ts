@@ -5,7 +5,7 @@ import { ManageProjectsComponent } from './components/manage-projects/manage-pro
 
 const routes: Routes = [
   {path:'dashboard', component: AdminDashboardComponent},
-  {path:'manage-project', component: ManageProjectsComponent}
+  {path:'manage-projects', component: ManageProjectsComponent}
 ];
 
 @NgModule({
