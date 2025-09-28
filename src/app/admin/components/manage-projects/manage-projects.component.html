@@ -2,7 +2,7 @@
     <div nz-row>
         <div nz col nzFlex="2">
             <nz-card nzTitle="inner" style="margin-top:16px;" nzTitle="Post New Project">
-                <form nz-form [formGroup] = "projectForm">
+                <form nz-form [formGroup] = "projectForm" (ngSubmit)="submitForm()">
                     <nz-form-item>
                         <nz-form-control nzErrorTip="Please input the name!">
                             <input type="text" nz-input formControlName="name" 
@@ -23,7 +23,7 @@
                         </nz-form-control>
                     </nz-form-item>
 
-                    <button nz-button nztype="primary" nzBlock class="w-100" [disabled]="!projectForm.invalid">Add New Project</button>
+                    <button nz-button nztype="primary" nzBlock class="w-100" [disabled]="projectForm.invalid">Add New Project</button>
 
                 </form>
             </nz-card>

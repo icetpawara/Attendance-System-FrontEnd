@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { SharedModule } from '../../../shared/shared.module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AdminService } from '../../services/admin.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-manage-projects',
@@ -12,7 +14,11 @@ export class ManageProjectsComponent {
 
   projectForm!:FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,
+    private adminService: AdminService,
+    private message: NzMessageService
+    
+  ) {}
 
   ngOnInit(){
     this.projectForm = this.fb.group({
@@ -22,5 +28,13 @@ export class ManageProjectsComponent {
 
     });
 }
+  submitForm(){
+    this.adminService.addProject(this.projectForm.value).subscribe(res=>{
+      this.message.success('Project added successfully', {nzDuration:5000});
+      this.projectForm.reset();
 
+}, err=>{
+  this.message.error('Error while posting  project', {nzDuration:5000});
+})
+}
 }
